@@ -79,7 +79,7 @@ _________________
 <https://youtu.be/OXrcMzlFhAg>
 
 
-2.1.2 Enable AD hexdump.lab
+2.1.2 Enable AD maksym.lab
 ---------------------------
 
   First, change hostname to `DC01'
@@ -123,7 +123,7 @@ _________________
   |                -> Select level functionality "Windows Server 2016"
   |                -> Insert Directory Services Restore Mode (DSRM) Password
   |                -> Skip DNS Options
-  |                -> Select NetBIOS domain name "HEXDUMP"
+  |                -> Select NetBIOS domain name "SALYHA"
   |                -> Select default paths for Database, Log files and SYSVOL
   |                -> Next towards Prerequisites Check
   |                -> Install
@@ -147,10 +147,10 @@ _________________
   | gpmc.msc
   `----
 
-  Add a new GPO called "Hexdump Lab Policy".
+  Add a new GPO called "Maksym Lab Policy".
 
   ,----
-  | Group Policy Management -> Forest: hexdump.lab
+  | Group Policy Management -> Forest: maksym.lab
   |                         -> Domains
   |                         -> hexdump.lab
   |                         -> Right click "Create a GPO in this domain and Link it here..."
@@ -192,17 +192,17 @@ _________________
 
   To create new AD users
   ,----
-  | New-ADUser -Name "leo" -SamAccountName "leo" -UserPrincipalName "leo@hexdump.lab" -ACcountPassword (ConvertTo-SecureString -AsPlainText "Hexdump123!" -Force) -Enabled $true
+  | New-ADUser -Name "leo" -SamAccountName "leo" -UserPrincipalName "maks@salyha.lab" -ACcountPassword (ConvertTo-SecureString -AsPlainText "Maksym123!" -Force) -Enabled $true
   `----
 
   Enable user
   ,----
-  | Enable-ADAccount -Identity "leo"
+  | Enable-ADAccount -Identity "Maks"
   `----
 
   Make the newly created user a aservice account.
   ,----
-  | Set-ADUser -Identity leo -ServicePrincipalNames @{Add="HTTP/webserver.hexdump.lab"}
+  | Set-ADUser -Identity leo -ServicePrincipalNames @{Add="HTTP/webserver.maksym.lab"}
   `----
 
   Make sure we have created it with
@@ -266,13 +266,13 @@ _________________
   we're good!
 
   ,----
-  | PS C:\Users\Quickemu> nslookup -type=SRV dc01.hexdump.lab
+  | PS C:\Users\Quickemu> nslookup -type=SRV dc01.maksym.lab
   | Server:  DC01
   | Address:  192.168.122.251
   | 
-  | hexdump.lab
-  |         primary name server = dc01.hexdump.lab
-  |         responsible mail addr = hostmaster.hexdump.lab
+  | maksym.lab
+  |         primary name server = dc01.maksym.lab
+  |         responsible mail addr = hostmaster.maksym.lab
   |         serial  = 20
   |         refresh = 900 (15 mins)
   |         retry   = 600 (10 mins)
@@ -290,7 +290,7 @@ _________________
   |               -> Computer Name
   |               -> Change
   |               -> Domain
-  |               -> "hexdump.lab"
+  |               -> "maksym.lab"
   `----
 
   To check that the workstation has been correctly joined to the AD, you
