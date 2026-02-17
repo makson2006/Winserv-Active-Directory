@@ -192,22 +192,22 @@ _________________
 
   To create new AD users
   ,----
-  | New-ADUser -Name "leo" -SamAccountName "leo" -UserPrincipalName "maks@salyha.lab" -ACcountPassword (ConvertTo-SecureString -AsPlainText "Maksym123!" -Force) -Enabled $true
+  | New-ADUser -Name "Maksym" -SamAccountName "Maksym" -UserPrincipalName "maks@salyha.lab" -ACcountPassword (ConvertTo-SecureString -AsPlainText "S@alyha123!" -Force) -Enabled $true
   `----
 
   Enable user
   ,----
-  | Enable-ADAccount -Identity "Maks"
+  | Enable-ADAccount -Identity "Maksym"
   `----
 
   Make the newly created user a aservice account.
   ,----
-  | Set-ADUser -Identity leo -ServicePrincipalNames @{Add="HTTP/webserver.maksym.lab"}
+  | Set-ADUser -Identity Maksym -ServicePrincipalNames @{Add="HTTP/webserver.maksym.lab"}
   `----
 
   Make sure we have created it with
   ,----
-  | Get-ADUser -Identity leo -Properties ServicePrincipalNames
+  | Get-ADUser -Identity Maksym -Properties ServicePrincipalNames
   `----
 
 
