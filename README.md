@@ -22,6 +22,9 @@ _________________
 ..... 2. Join Workstation to Domain
 3. Why is AD Useful?
 
+The evidence and the trobeshouting process you can find by following the link
+[View Documentation](https://docs.google.com/document/d/1S5v9Fn0HuCbO1e16oPK6zrim5rv9icVHXwbEF8LXKx0/edit?usp=sharing)
+
 
 1 Lab Structure
 ===============
